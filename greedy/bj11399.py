@@ -1,1 +1,2 @@
-a=input()
+n = input()
+for
