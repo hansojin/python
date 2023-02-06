@@ -6,15 +6,11 @@ input = sys.stdin.readline
 n=int(input())
 n_li=list(map(int,input().split()))
 
-
 m=int(input())
 m_li=list(map(int,input().split()))
 
-ans=[]
-for i in range(m):
-    if m_li[i] in n_li:
-        ans.append(1)
-    else:
-        ans.append(0)
-
-print(ans)
+for i in m_li:
+    if i in n_li:
+        
+        print(1, end=' ')
+    else: print(0, end=' ')
