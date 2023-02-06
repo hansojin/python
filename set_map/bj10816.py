@@ -4,26 +4,13 @@ import sys
 input = sys.stdin.readline
 
 n=int(input())
-li=list(map(int,input().split()))
-li.sort()
+n_li=list(map(int,input().split()))
+sset=set(n_li)
+m=int(input())
+m_li=list(map(int,input().split()))
 
-def bin_search(num):
-    l=0
-    r=n-1
-    while l<=r:
-        mid=(l+r)//2
-        
-        if li[mid]==num:
-            return 1
-        elif li[mid]>num:
-            r=mid-1     #범위 반으로 줄이기
-        else:
-            l=mid+1
-    return 0
+for i in m_li:
+    if i in sset:
+        print(n_li.count(i), end=' ')
+    else: print(0, end=' ')
 
-int(input())
-
-for num in list(map(int,input().split())):
-    if bin_search(num)==1:
-        print(li.count(num), end=' ')
-    else: print(0, end= ' ')
