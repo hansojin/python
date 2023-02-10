@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 
-from fractions import Fraction as fr
+
 import sys
 input = sys.stdin.readline
-
+from math import gcd
 
 n=int(input())
 
 nums=list(map(int,input().split()))
 for i in range(1,n):
-    ans=fr(nums[0],1)/fr(nums[i],1)
-    print(ans.numerator,'/',ans.denominator,sep='')
+    print('{}/{}'.format(int(nums[0]/gcd(nums[i],num[0])),int(nums[i]/gcd(nums[i],nums[0]))
 
