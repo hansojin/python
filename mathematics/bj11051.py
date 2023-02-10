@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 
-res=1
+from math import factorial as fac
 a,b=map(int,input().split())
-for i in range(a-b+1,a+1):
-    res*=i
-for j in range(1,b+1):
-    res/=j
+
+res=fac(a)//(fac(b)*fac(a-b))
 print(int(res%10007))
