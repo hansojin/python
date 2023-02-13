@@ -20,13 +20,13 @@ def dfs(cnt):
 
         check[i]=True
         ans.append(nums[i])
-        print("after append _ ans : " , ans)
-        print("check : ", check)
-        print('cnt1 : ',cnt) 
-        dfs(cnt+1)
-        print("recur end _ i,cnt : ",i,cnt)
+         
+        dfs(cnt+1)      #여기서 이제 dfs. 한 노드 잡고 아래로 내려가다가
+                        #그 노드 다 돌면, 옆 노드로 이동하는거지 sibling으로
+
+        # print("recur end _ i,cnt : ",i,cnt)
         ans.pop()
-        print("after pop : ", ans)
+        # print("after pop : ", ans)
         check[i]=False
 dfs(0)
 
