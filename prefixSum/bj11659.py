@@ -6,13 +6,14 @@ input = sys.stdin.readline
 
 a,b=map(int,input().split())
 li=list(map(int,input().split()))
-def ran(m,n):
-    ans=0
-    for i in range(m-1,n):
-        ans+=li[i]
-    return ans
+
+prefix_sum=[0]
+tmp=0
+for i in li:    #미리 계산합을 구해서 배열에 저장
+    tmp+=i
+    prefix_sum.append(tmp)
 
 for i in range(b):
     m,n=map(int,input().split())
-    print(ran(m,n))
+    print(prefix_sum[n]-prefix_sum[m-1])
 
