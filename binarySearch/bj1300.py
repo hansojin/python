@@ -3,11 +3,17 @@
 n=int(input())
 k=int(input())
 
-#a=[[0 for _ in range(1,n+1)] for _ in range(1,n+1)]
-b=[]
-for i in range(1,n+1):
-    for j in range(1,n+1):
-        #a[i][j]=i*j
-        b.append(i*j)
-b.sort()
-print(b[k])
+srt,end=1,k
+
+while srt<=end:
+    mid=(srt+end)//2
+    tmp=0
+    for i in range(1,n+1):
+        tmp+=min(mid//i,n)
+
+    if tmp>=k:
+        ans=mid
+        end=mid-1
+    else:
+        srt=mid+1
+print(ans)
