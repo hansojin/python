@@ -5,12 +5,11 @@ input = sys.stdin.readline
 
 n=int(input())
 li=list(map(int,input().split()))
-ans=[]
-for i in range(0,n):
-    for j in range(i+1,n):
-        if li[j]>li[i]:
-            ans.append(li[j])
-            break
-    else:
-        ans.append(-1)
+ans=[-1 for i in range(n)]
+stack=[]
+
+for i in range(n):
+    while stack and li[stack[-1]]<li[i]:
+        ans[stack.pop()]=li[i]
+    stack.append(i)
 print(*ans)
