@@ -8,27 +8,17 @@ m=int(input())
 num=list(map(int,input().split()))
 num.sort()
 
-srt,end=0,1
+srt,end=0,n-1
 cnt=0
-mm=num[srt]+num[end]
 
 while srt<end:
-    if mm>m:
-        break
-    if mm==m:
+    if num[srt]+num[end]==m:
         cnt+=1
         srt+=1
-        end=srt+1
-        mm=num[srt]+num[end]
-
-    elif end==n:
-        mm-=num[srt]
+        end-=1
+    elif num[srt]+num[end]<m:
         srt+=1
-        mm+=num[srt]
     else:
-        mm-=num[end]
-        end+=1
-        mm+=num[end]
-    print(srt,end)
+        end-=1
 print(cnt)
 
