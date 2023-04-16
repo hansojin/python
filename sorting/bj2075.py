@@ -2,19 +2,19 @@
 
 import sys
 input = sys.stdin.readline
+import heapq
 
+heap=[]
 n=int(input())
-li=[]
-for i in range(n):
-    if i==(n-1):
-        num=list(map(int,input().split()))
-        for i in num:
-            li.append(i)
-    else:    
-        num=list(map(int,input().split()))
-        num.sort(reverse=True)
-        li.append(num[0])
-li.sort(reverse=True)   
-print(li[n-1])
-    
 
+for i in range(n):
+    nums=list(map(int,input().split()))
+    if not heap:
+        for num in nums:
+            heapq.heappush(heap,num)
+    else:
+        for num in nums:
+            if heap[0]<num:
+                heapq.heappush(heap,num)
+                heapq.heappop(heap)
+print(heap[0])
