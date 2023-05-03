@@ -12,12 +12,9 @@ for i in range(len(li[0])):
         tmp=li[0][i]
         if tmp!=j[i]:
             ans=False
+            pri.append('?')
             break
     if ans==True:
-        pri.append(tmp) 
-    else:
-        pri.append('?')
-
-for i in pri:
-    print(i,end='')
+        pri.append(tmp)
+print(''.join(pri))
 
