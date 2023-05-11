@@ -3,6 +3,16 @@
 import sys
 input = sys.stdin.readline
 
+def cal(arr,length):
+    global ans
+    if arr:
+        i = 0
+        while i < length - 1:
+            ans += max(arr[i] * arr[i + 1], arr[i] + arr[i + 1])
+            i += 2
+        if length % 2 == 1:
+            ans += arr[length - 1]
+
 n=int(input())
 ans=0
 li,po,ne=[],[],[]
@@ -24,22 +34,7 @@ for _ in range(cnt):
 
 pol,nel=len(po),len(ne)
 
-
-if po:
-    i=0
-    while i<pol-1:
-        ans+=max(po[i]*po[i+1],po[i]+po[i+1])
-        i+=2
-    if pol%2==1:
-        ans+=po[pol-1]
-
-if ne:
-    i=0
-    while i<nel-1:
-        ans+=max(ne[i]*ne[i+1],ne[i]+ne[i+1])
-        i+=2
-    if nel%2==1:
-        ans+=ne[nel-1]
-
+cal(po,pol)
+cal(ne,nel)
 
 print(ans)
