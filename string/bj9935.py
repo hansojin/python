@@ -3,13 +3,16 @@
 s=input()
 target=input()
 
-while True:
-    if target in s:
-        s=s.replace(target,'')
-    else:
-        break
+stack=[]
+tlen=len(target)
 
-if len(s)!=0:
-    print(s)
+for i in range(len(s)):
+    stack.append(s[i])
+    if ''.join(stack[-tlen:])==target:
+        for _ in range(tlen):
+            stack.pop()
+print(stack)
+if stack:
+    print(''.join(stack))
 else:
     print("FRULA")
