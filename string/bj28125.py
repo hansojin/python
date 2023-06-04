@@ -15,7 +15,8 @@ for i in range(n):
     
     wrd=word.replace('@','a').replace('[','c').replace('!','i').replace(';','j').replace('^','n').replace('0','o').replace('7','t').replace("\\\\'",'w').replace("\\'",'v')
     
-    if len(wrd)//2<len(wrd)-cnt:
+    if (len(wrd)-cnt)*2>=len(wrd):
         print("I don't understand",end='')
     else:
         print(wrd,end='')
+
