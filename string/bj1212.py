@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+'''
 n=str(input())
 n=n[::-1]
 num=0
@@ -14,3 +15,6 @@ while True:
         break
 for i in li[::-1]:
     print(i,end='')
+'''
+print(bin(int(input(), 8))[2:])
+
