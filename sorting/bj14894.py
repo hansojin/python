@@ -2,24 +2,36 @@
 
 import sys
 input= sys.stdin.readline
+def quick_sort(arr):
+    cnt = 0
 
-n=int(input())
-li=list(map(int,input().split()))
-cnt=0
-def quick(li):
-    global cnt
-    if len(li)<=1:
-        cnt+=1
-        return li
-    else:
-        cnt+=2
-    pivot = li[0]
-    tail = li[1:]
+    if len(arr) <= 1:
+        return arr, cnt
 
-    left = [ x for x in tail if x<=pivot]
-    right = [ x for x in tail if x>pivot]
+    pivot = arr[len(arr) // 2]
+    less, equal, greater = [], [], []
 
-    return quick(left) + [pivot] + quick(right)
+    for num in arr:
+        cnt += 1
+        if num < pivot:
+            less.append(num)
+        elif num > pivot:
+            greater.append(num)
+        else:
+            equal.append(num)
 
-quick(li)
-print(cnt)
+    sorted_less, cnt_less = quick_sort(less)
+    sorted_greater, cnt_greater = quick_sort(greater)
+
+    return sorted_less + equal + sorted_greater, cnt + cnt_less + cnt_greater
+
+def main():
+    N = int(input())
+    A = list(map(int, input().split()))
+
+    _, cnt = quick_sort(A)
+    print(cnt)
+
+if __name__ == "__main__":
+    main()
+
