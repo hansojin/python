@@ -7,17 +7,20 @@ n,m=map(int,input().split())
 li=list(map(int,input().split()))
 
 dic = dict()
+idx=1
 
 for i in li:
     if i in dic:
-        dic[i]+=1
+        dic[i][0]+=1
     else:
-        dic[i]=1
+        dic[i]=[1,idx]
+        idx+=1
 
 dic= list(zip(dic.keys(),dic.values()))
 
-dic=sorted(dic,key= lambda x : (-x[1],x[0]))
+dic=sorted(dic,key= lambda x : (-x[1][0],x[1][0]))
 
-for x,y in dic:
-    for _ in range(y):
-        print(x,end=' ')
+res=[]
+for i,j in dic:
+    res+=[i]*j[0]
+print(*res)

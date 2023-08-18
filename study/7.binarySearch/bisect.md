@@ -12,3 +12,4 @@ x= 4
 
 print(bisect_left(a,x)  //2
 print(bisect_right(a,x) //4
+```
