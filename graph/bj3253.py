@@ -29,7 +29,6 @@ def dij(x):
                 dist[i[0]] = cost
                 heapq.heappush(q,(cost,i[0]))
 dij(s)
-print(dist)
 if dist[e] ==INF:
     print(-1)
 else:
