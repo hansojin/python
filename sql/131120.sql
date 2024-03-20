@@ -1,0 +1,7 @@
+SELECT MEMBER_ID, MEMBER_NAME, GENDER, 
+    left(DATE_OF_BIRTH,10) as DATE_OF_BIRTH
+from MEMBER_PROFILE 
+where TLNO != 'NULL'
+    and DATE_OF_BIRTH like '%03%'
+    AND GENDER ='W'
+order by MEMBER_ID
